@@ -1,7 +1,15 @@
+//Team Faunder: Grace Cuenca, Adris Jaoutakas, Haiyao Liu
+//APCS2 pd1
+//LAB01 -- What Does the Data Say?
+//2017-03-09
 
-// Timer: Works for any algorithm and gets its time.
+/*=======================
+  class QuickSortTester
+  ======================*/
+
+// QuickSortTester: Works for any algorithm and gets its time.
 //        Abstract, since the tested algorithm must be defined
-public abstract class Timer {
+public abstract class QuickSortTester {
 
     // Optional data definition (NOT counted in calculated time)
     protected abstract void initData(int n); 
@@ -38,14 +46,14 @@ public abstract class Timer {
     }
 
     public static void main(String[] args) {
-        Timer time = new TimeQsort(); // defines which Algorithm to use
+        QuickSortTester time = new TimeQsort(); // defines which Algorithm to use
         long[] times = time.getTimes(1, 100, 200);
         printTimes(1, times);
     }
 }
 
 // Timer implementation for Qsort
-class TimeQsort extends Timer {
+class TimeQsort extends QuickSortTester {
 
     private static int[] arr;
 
