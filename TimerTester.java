@@ -19,13 +19,28 @@ public abstract class TimerTester {
     private static final String OUTPUT_CSV_FILENAME = "times.csv";
 
 
-    // Data definition (NOT counted in calculated time)
+    /*****************************************************
+     * void initData(int)
+     * Initializes data, run before the "algorithm" loop
+     * @param n -- size of data/n to test for in runtime
+     *****************************************************/
     protected abstract void initData(int n); 
 
-    // Defiene the algorithm to time here
+    /*****************************************************
+     * void algorithm(int)
+     * Define algorithm to test for time here 
+     * @param n -- size of data/n to test for in runtime
+     *****************************************************/
     protected abstract void algorithm(int n);
 
-    // Average time to run algorithm for n=n
+    /*****************************************************
+     * long averageNanoTime(int, int)
+     * Gets and Returns the average time to run algorithm 
+     *    for a given n
+     * @param runs -- number of times to run algorithm
+     * @param n    -- size of data/n to test for in runtime
+     * @returns    -- average nanoseconds to run "algorithm"
+     *****************************************************/
     public long averageNanoTime(int runs, int n) {
         initData(n);
 
@@ -37,7 +52,17 @@ public abstract class TimerTester {
         return delta / runs;
     }
 
-    // Gets a list of the average nanotimes for n = (startN to endN)
+    /*****************************************************
+     * long[] getTimes(int, int, int)
+     * Gets a list of the average nanotimes for n between 
+     *     startN to endN
+     * @param startN -- starting "n" value
+     * @param endN   -- ending "n" value
+     * @param runs   -- number of times to run algorithm 
+     *                  for each n
+     * @returns      -- list of average times it took to run
+     *                  the algorithm for each n
+     *****************************************************/
     public long[] getTimes(int startN, int endN, int runs) {
         long[] result = new long[endN - startN + 1];
         for(int i = startN; i <= endN; i++) {
@@ -46,14 +71,27 @@ public abstract class TimerTester {
         return result;
     }
 
-    // Prints a given timeArr list with a start offset
-    public static void printTimes(int start, long[] timeArr) {
+    /*****************************************************
+     * void printTimes(int, long[])
+     * Prints a given timeArr list with a start offset
+     * @param offset   -- offset for where to start "n" from 
+     *                   (aesthetic only)
+     * @param timeArr -- array of times to run algorithm 
+     *                   for each n
+     *****************************************************/
+    public static void printTimes(int offset, long[] timeArr) {
         for(int i = 0; i < timeArr.length; i++) {
-            System.out.println( (start + i) + " : " + timeArr[i] );
+            System.out.println( (offset + i) + " : " + timeArr[i] );
         }
     }
  
-    // Writes a list of runtimes up in a csv (with a start offset)
+    /*****************************************************
+     * void writeRunTimeCSV(long[], int)
+     * Writes a list of runtimes up in a csv (with a start offset)
+     * @param runtimes -- list of runtimes for each n
+     * @param offset   -- offset for where to start "n" from 
+     *                   (aesthetic only)
+     *****************************************************/
     private static void writeRuntimeCSV(long[] runtimes, int offset) {
         StringBuilder result = new StringBuilder();
         for(int i = 0; i < runtimes.length; i++) {
@@ -63,7 +101,12 @@ public abstract class TimerTester {
         writeTextFile(content, OUTPUT_CSV_FILENAME);        
     }
 
-    // Writes text to text file
+    /*****************************************************
+     * void writeTextFile(String, String)
+     * Writes text to text file
+     * @param content -- content to write within file
+     * @param fname   -- name of file
+     *****************************************************/
     private static void writeTextFile(String content, String fname) {
         BufferedWriter writer = null;
         try {
