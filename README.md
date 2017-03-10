@@ -18,7 +18,24 @@
 * Partition works by selecting a pivot, moving all elements less than or equal to the pivot value to the left of the pivote.
 
 ### Time Measurements and Analysis
-* INSERT
+* Because we grew tired of rewriting timer classes and because we sensed
+* that there may be more timer projects to come, we decided to write a generic
+* timer class that times any function. No hassle, no nonesense, just define the 
+* function in a superclass and give it a spin.
+*
+* The timer has an abstract "algorithm" method that takes in an "n" parameter
+* and in subclasses you define this algorithm and what it means to run it for
+* any "n". (in this case the algorithm is QuickSort.qsort)
+*
+* The timer also has an abstract "initData" method that takes in an "n".
+* This is used to create different arrays of length "n" but in reality it
+* can be used for anything.
+*
+* When asked, the timer runs the "initData" method, then runs a large number of 
+* iterations of "algorithm", measures the time it took to run all those and finds
+* the average time in nanoseconds. This can be done for a range of "n"'s using
+* the "getTimes" method, which returns an array with the times.
+*
 
 ### Pivot Selection and Data Arrangement's Affect on Execution Time
 * When the pivots are located at the extremes, the runtime becomes slower
