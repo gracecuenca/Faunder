@@ -18,7 +18,7 @@
 * Partition works by selecting a pivot, moving all elements less than or equal to the pivot value to the left of the pivote.
 
 ### Time Measurements and Analysis
-* INSERT
+* See png file.
 
 ### Pivot Selection and Data Arrangement's Affect on Execution Time
 * When the pivots are located at the extremes, the runtime becomes slower

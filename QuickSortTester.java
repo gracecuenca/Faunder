@@ -14,7 +14,7 @@ public abstract class QuickSortTester {
     // Optional data definition (NOT counted in calculated time)
     protected abstract void initData(int n); 
 
-    // Defiene the algorithm to time here
+    // Define the algorithm to time here
     protected abstract void algorithm(int n);
 
     // Average time to run algorithm for n=n
@@ -41,13 +41,13 @@ public abstract class QuickSortTester {
     // Prints a given timeArr list with a start offset
     public static void printTimes(int start, long[] timeArr) {
         for(int i = 0; i < timeArr.length; i++) {
-            System.out.println( (start + i) + " : " + timeArr[i] );
+            System.out.println( (start + i) + "\t" + timeArr[i] );
         }
     }
 
     public static void main(String[] args) {
         QuickSortTester time = new TimeQsort(); // defines which Algorithm to use
-        long[] times = time.getTimes(1, 100, 200);
+        long[] times = time.getTimes(1, 1000, 200);
         printTimes(1, times);
     }
 }
