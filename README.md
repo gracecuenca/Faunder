@@ -18,6 +18,7 @@
 * Partition works by selecting a pivot, moving all elements less than or equal to the pivot value to the left of the pivote.
 
 ### Time Measurements and Analysis
+<<<<<<< HEAD
 * Because we grew tired of rewriting timer classes and because we sensed
 * that there may be more timer projects to come, we decided to write a generic
 * timer class that times any function. No hassle, no nonesense, just define the 
@@ -36,6 +37,7 @@
 * the average time in nanoseconds. This can be done for a range of "n"'s using
 * the "getTimes" method, which returns an array with the times.
 *
+* See png file.
 
 ### Pivot Selection and Data Arrangement's Affect on Execution Time
 * When the pivots are located at the extremes, the runtime becomes slower
